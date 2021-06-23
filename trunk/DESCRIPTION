@@ -8,7 +8,7 @@ Copyright: Her Majesty the Queen in right of Canada
 Description: Makes it possible to connect to a local distribution of the 'CAPSIS' platform and to
     run some scripts from the 'R' environment. This package relies on 'J4R' for the connection to
     the 'Java' environment. 
-Imports:
+Depends:
     J4R (>= 1.1.0)
 License: LGPL-3
 Encoding: UTF-8
