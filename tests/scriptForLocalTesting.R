@@ -1,20 +1,15 @@
-
-# require(J4R)
-# connectToJava()
-# myArray <- createJavaObject("java.util.ArrayList")
-# myArray$size()
-
 require(RCapsis)
 
-myPath <- file.path("C:","Users", "matforti", "Documents", "7_Developpement", "JavaProjects", "capsis")
-dir.exists(myPath)
-setCapsisPath(myPath)
+java8path <- file.path("C:", "Program Files", "Java", "jdk1.8.0_321", "jre", "bin", "java.exe")
+setJavaPath(java8path)
+
+myCapsisPath <- file.path("C:","Users", "matforti", "Documents", "7_Developpement", "JavaProjects", "capsis")
+dir.exists(myCapsisPath)
+setCapsisPath(myCapsisPath)
 getCapsisPath()
 
 connectToCapsis()
-# myArray$size()
-# J4R::getClassLoaderPaths()
-# myEmptyArray <- J4R::as.JavaArray("")
-# callJavaMethod("capsis.app.Starter", "main", myEmptyArray)
 myScript <- createC4ScriptInstance("artemis")
+
+
 shutdownCapsis()
