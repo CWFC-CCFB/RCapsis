@@ -72,7 +72,7 @@ myScript <- createC4ScriptInstance("artemis") # create a reference to Java C4Scr
 
 The myScript object is a reference to a C4Script instance on the Java end. All the public methods of this class can be accessed through the myScript object.
 
-The call to the setJavaPath function is only required if Java 8 is the default version
+The call to the setJavaPath function is only required if Java 8 is NOT the default version
 on your OS. To know the default version, you can open a command line and type 
 
 ~~~
