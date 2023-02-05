@@ -26,11 +26,11 @@ www.gnu.org/licenses/lgpl-3.0.en.html .
 
 ## Source code
 
-The source code is available on GitHub at github.com/CWFC-CCFB/RCapsis .
+The source code is available on GitHub at [github.com/CWFC-CCFB/RCapsis](https://github.com/CWFC-CCFB/RCapsis).
 
 ## Bug reporting
 
-Any bug or suggestion can be logged as a issue on the project website at github.com/CWFC-CCFB/RCapsis/issues
+Any bug or suggestion can be logged as a issue on the project website at [github.com/CWFC-CCFB/RCapsis/issues](https://github.com/CWFC-CCFB/RCapsis/issues).
 
 ## How to install the RCapsis package
 
@@ -39,10 +39,10 @@ to go through the following steps:
 
 1- Install the J4R package by copying this line of code in your R console:
 ~~~
-    install.packages("https://sourceforge.net/projects/repiceasource/files/latest", repos = NULL,  type="source")
+install.packages("https://sourceforge.net/projects/repiceasource/files/latest", repos = NULL,  type="source")
 ~~~
 
 2- Then download and install the RCapsis package by copying this line of code in your R console:
 ~~~
-    install.packages("https://sourceforge.net/projects/rcapsis.capsisbridge.p/files/latest", repos = NULL,  type="source")
+install.packages("https://sourceforge.net/projects/rcapsis.capsisbridge.p/files/latest", repos = NULL,  type="source")
 ~~~
