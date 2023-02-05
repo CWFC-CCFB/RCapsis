@@ -5,7 +5,8 @@
 # myArray$size()
 
 require(RCapsis)
-myPath <- file.path("C:","Users", "matforti", "Documents", "4_GrowthSimulators", "CAPSIS4", "Build20210614")
+
+myPath <- file.path("C:","Users", "matforti", "Documents", "7_Developpement", "JavaProjects", "capsis")
 dir.exists(myPath)
 setCapsisPath(myPath)
 getCapsisPath()
@@ -16,4 +17,4 @@ connectToCapsis()
 # myEmptyArray <- J4R::as.JavaArray("")
 # callJavaMethod("capsis.app.Starter", "main", myEmptyArray)
 myScript <- createC4ScriptInstance("artemis")
-shutdownClient()
+shutdownCapsis()

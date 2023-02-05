@@ -18,25 +18,24 @@ rcapsisSettingEnv <- new.env()
 #' @export
 connectToCapsis <- function(memorySize = NULL) {
   if (J4R::isConnectedToJava()) {
-    message("R is already connected to Java. RCapsis will add capsis extensions dynamically if need be.")
+    if (.checkClassPath()) {
+      message("R is already connected to CAPSIS.")
+    } else {
+      message("It seems R is already connected to Java, but the CAPSIS extensions have not been loaded.")
+      message("You should first disconnect using the J4R::shutdownClient() function.")
+      stop("CAPSIS is not part of the classpath.")
+    }
   } else {
-    J4R::connectToJava(memorySize = memorySize)
+    classPath <- c(file.path(getCapsisPath(),"class"), file.path(getCapsisPath(), "ext/*"))
+    J4R::connectToJava(memorySize = memorySize, extensionPath = classPath)
   }
-  .addCapsisClasspath()
-  return(TRUE)
 }
 
-
-.addCapsisClasspath <- function() {
-  capsisPath <- getCapsisPath()
-  J4R::addToClassPath(file.path(getCapsisPath(), "class"))
-  extensionPath <- file.path(getCapsisPath(), "ext")
-  extensionFiles <- dir(extensionPath)
-  for (filename in extensionFiles) {
-    if (endsWith(filename, ".jar")) {
-      J4R::addToClassPath(file.path(extensionPath, filename))
-    }
-  }
+.checkClassPath <- function() {
+  return (J4R::checkIfClasspathContains("biosimclient") &
+            J4R::checkIfClasspathContains("repicea") &
+            J4R::checkIfClasspathContains("lerfobforesttools") &
+            J4R::checkIfClasspathContains("jeeb-util"))
 }
 
 
@@ -86,4 +85,17 @@ setCapsisPath <- function(path) {
 createC4ScriptInstance <- function(modelName) {
   myScript <- J4R::createJavaObject("capsis.app.C4Script", modelName)
   return(myScript)
+}
+
+
+#'
+#' Shut down CAPSIS if there is a connection.
+#'
+#' It calls the shutdownClient function in J4R.
+#'
+#' @export
+shutdownCapsis <- function() {
+  if (J4R::isConnectedToJava() & .checkClassPath()) {
+    J4R::shutdownClient()
+  }
 }
